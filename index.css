@@ -1,0 +1,753 @@
+body {
+    background: linear-gradient(to bottom, rgb(33 52 107), rgb(107, 147, 255));
+    margin: 0;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    min-height: 220vh;
+}
+
+nav {
+    background-color: rgb(107 147 255 / 33%);
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    border-radius: 20px;
+    z-index: 100;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    margin-right: 20px;
+}
+
+.logo-img {
+    width: 70px;
+    border-radius: 50%;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 41%);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.win-logo-desktop,
+.win-logo-mobile {
+    width: 120px;
+    height: 65px;
+}
+
+.win-logo-mobile {
+    width: 190px;
+    height: auto;
+    object-fit: contain;
+}
+
+.win-logo {
+    position: absolute;
+    top: 210%;
+}
+
+.win-logo-mobile-icon {
+    width: 115px;
+}
+
+.logo-img:hover {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 3px 12px rgb(0 0 0 / 60%);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: "Cairo", sans-serif;
+    text-align: center;
+}
+
+a:hover {
+    color: #f0e8ff;
+}
+
+.link-div,
+.link-div-icon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.link-div-icon.desktop-only {
+    display: flex;
+    /* visible on desktop */
+    align-items: center;
+}
+
+.link-div-icon.mobile-only {
+    display: none;
+    /* hidden on desktop */
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.drawer {
+    position: fixed;
+    right: -250px;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: rgb(33 52 107 / 95%);
+    transition: right 0.3s ease;
+    padding-top: 30px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #343545;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c9c4c4;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d3d3d3;
+}
+
+.video-container {
+    margin-top: 100px;
+    /* space below fixed nav */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 50px 50px 0 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+.intro-container {
+    text-align: center;
+    color: white;
+    background: linear-gradient(to bottom, #343545, transparent);
+}
+
+.intro-container .intro-heading {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 2.5em;
+    margin: 10px 0px -5px;
+}
+
+.intro-container .intro-text {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: bold;
+    font-size: 2.2em;
+    margin: 0 0 20px 0;
+    color: #FFBF00;
+
+}
+
+.intro-images {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.intro-images img {
+    width: clamp(10.5em, 14.5em, 19.5em);
+    height: auto;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+.intro-images .coptic {
+    position: absolute;
+    left: 50%;
+    --coptic-base-transform: translateX(-60%) scale(1.08);
+    transform: var(--coptic-base-transform) translateY(50px);
+    z-index: 1;
+}
+
+.intro-images .holy,
+.intro-images .al7an {
+    transform: translateY(50px);
+}
+
+.holy.is-visible,
+.al7an.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coptic.is-visible {
+    opacity: 1;
+    transform: var(--coptic-base-transform) translateY(0);
+}
+
+.holy {
+    transition: opacity 0.7s ease-out, transform 0.8s ease-out;
+}
+
+.coptic {
+    transition: opacity 1s ease-out, transform 1.5s ease-out;
+}
+
+.al7an {
+    transition: opacity 1.5s ease-out, transform 2s ease-out;
+}
+
+.rules-container {
+    text-align: center;
+    color: white;
+    padding: 20px 20px 0 0;
+}
+
+.rules-heading {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 2.5em;
+    margin: 20px 0 0;
+    color: #FFBF00;
+    text-shadow: 0px 2px 9px #000000
+}
+
+.rules-content {
+    font-family: "Cairo", sans-serif;
+    font-size: 1.2em;
+    text-align: right;
+    padding: 20px 50px 20px 250px;
+    /* top, right, bottom, left */
+    background-image: url(/saints/boles.png);
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    min-height: 400px;
+}
+
+.rules-content li {
+    margin: 15px 0;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.encourage {
+    text-align: center;
+    color: white;
+    background-image: url(/saints/gerges.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 50% 100%;
+    min-height: 400px;
+}
+
+.encourage-content {
+    float: left;
+    width: 45%;
+}
+
+.encourage-heading {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 35px;
+    margin: 3% 0px 0px 10%;
+    color: #FFBF00;
+    text-shadow: 0px 2px 9px #000000;
+    text-align: center;
+}
+
+.chat1,
+.chat2,
+.chat3 {
+    font-family: "Cairo", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-shadow: 0px 2px 9px #000000;
+    color: white;
+}
+
+.chat1 {
+    margin: 5% 0 0 10%;
+    text-align: right;
+}
+
+.chat2-3 {
+    float: left;
+    width: fit-content;
+    margin: 7%;
+}
+
+.chat2,
+.chat3 {
+    text-align: center;
+    margin: 0px;
+}
+
+footer {
+    padding: 1em;
+    background-color: #060514;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.footer-logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 720px;
+    box-sizing: border-box;
+}
+
+.danial-footer,
+.athl-footer {
+    display: block;
+    height: auto;
+    margin: 0;
+}
+
+.danial-footer {
+    width: clamp(60px, 10vw, 140px);
+    border-radius: 50%;
+}
+
+.athl-footer {
+    width: clamp(80px, 16vw, 200px);
+}
+
+.rights {
+    font-family: "Cairo", sans-serif;
+    color: #ffffff;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0;
+}
+
+/*----------------------------------------*/
+/*------------ ELMOMAIZ PAGE -------------*/
+/*----------------------------------------*/
+
+.header {
+    margin-top: 150px;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 1.8em;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0px 2px 9px #000000;
+    font-weight: 600;
+    background-color: #343545;
+    padding: 15px;
+}
+
+.momaiz ,#rank-caption{
+    margin: 20px auto;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 3em;
+    color: #FFBF00;
+    text-shadow: 0px 2px 9px #000;
+    font-weight: 700;
+    padding: 20px 40px;
+    width: fit-content;
+}
+
+.momaiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 180px);
+    gap: 80px;
+    padding: 40px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.momaiz-item {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+}
+
+.momaiz-item {
+    text-align: center;
+    z-index: 1;
+}
+
+.momaiz-item .momaiz-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.momaiz-item:hover .momaiz-img {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+}
+
+.momaiz-item:hover {
+    z-index: 5;
+}
+
+.momaiz-item .momaiz-caption {
+    margin-top: 10px;
+    font-family: Cairo, sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0px 2px 9px #000;
+}
+
+.mom-en {
+    margin: 20px auto;
+    width: 50%;
+}
+
+.c1,
+.c2 {
+    font-size: 2.2em;
+    color: #f0e8ff;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-weight: 500;
+    text-shadow: 0px 2px 9px #000000;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.c1 {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.c2 {
+    text-align: left;
+}
+
+.c1:hover,
+.c2:hover {
+    color: #ffecb3;
+    text-shadow: 0px 2px 9px #fff;
+    transform: scale(1.05);
+}
+
+.aya {
+    margin: 5% auto 0;
+    font-family: "Cairo", sans-serif;
+    font-weight: 600;
+    font-size: 1.8em;
+    text-shadow: 0px 0px 9px #fff;
+}
+
+/*----------------------------------------*/
+/*-------------- RANK PAGE ---------------*/
+/*----------------------------------------*/
+
+.rank-container {
+    width: 75%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto 20px;
+    min-width: 600px;
+    border-radius: 20px;
+}
+
+.rank-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+}
+
+.rank-table caption {
+    caption-side: top;
+    color: #FFBF00;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 12px;
+}
+
+.rank-table th,
+.rank-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: white;
+    font-family: Cairo, sans-serif;
+    text-align: center;
+}
+
+.rank-table th {
+    background: rgba(255, 255, 255, 0.02);
+    font-weight: 700;
+}
+
+
+/*----------------------------------------*/
+/*------------- RESPONSIVE ---------------*/
+/*----------------------------------------*/
+
+@media (max-width: 600px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .link-div-icon {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+    }
+
+
+    .link-div-icon.desktop-only {
+        display: none;
+    }
+
+    .link-div-icon.mobile-only {
+        display: flex;
+        margin-inline-start: 10px;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    nav {
+        width: calc(100% - 40px);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links,
+    .win-logo-mobile {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .video-container {
+        margin-top: 90px;
+        padding: 10px;
+    }
+
+    .video-container video {
+        border-radius: 15px 15px 0 0;
+    }
+
+    .intro-container .intro-heading {
+        font-size: 1.5em;
+    }
+
+    .intro-container .intro-text {
+        font-size: 1.3em;
+    }
+
+    .intro-images {
+        height: fit-content;
+    }
+
+    .intro-images img {
+        width: clamp(8.5em, 15vw, 12em);
+    }
+
+    .intro-images .coptic {
+        --coptic-base-transform: translateX(-50%) scale(1);
+    }
+
+    .rules-container {
+        text-align: center;
+        color: white;
+    }
+
+    .rules-heading {
+        font-family: "Noto Kufi Arabic", sans-serif;
+        font-size: 2em;
+        margin: 20px 0 0;
+        color: #FFBF00;
+        text-shadow: 0px 2px 9px #000000;
+
+    }
+
+    .rules-content {
+        background-image: url(/saints/abosefen2.png);
+        background-size: 60% 100%;
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding: 0 10px 0;
+    }
+
+    .rules-container li {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 15px;
+        line-height: 3.5em;
+    }
+
+    .encourage-content {
+        float: left;
+        margin-top: 10%;
+        margin-left: 10px;
+    }
+
+    .encourage-heading,
+    .chat1,
+    .chat2,
+    .chat3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .encourage-heading {
+        font-size: 22px;
+        margin-left: auto;
+    }
+
+    .chat1 {
+        margin-top: 10%;
+        margin-left: auto;
+    }
+
+    .chat2-3 {
+        float: none;
+        width: fit-content;
+        margin: 15% auto 0;
+
+    }
+
+    .footer-logos {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .danial-footer {
+        width: clamp(60px, 10vw, 140px);
+        position: static;
+        transform: none;
+        bottom: auto;
+        left: auto;
+        border-radius: 50%;
+    }
+
+    .athl-footer {
+        width: clamp(80px, 16vw, 200px);
+        position: static;
+        transform: none;
+        bottom: auto;
+        left: auto;
+    }
+
+    .rights {
+        margin-top: 0;
+    }
+
+    /*----------------------------------------*/
+    /*------------ ELMOMAIZ PAGE -------------*/
+    /*----------------------------------------*/
+
+    .header {
+        font-size: 1.5em;
+        margin-top: 120px;
+    }
+
+    .momaiz ,#rank-caption {
+        font-size: 2em;
+        padding: 10px 40px 0;
+    }
+
+    .momaiz-grid {
+        padding-bottom: 25px;
+        gap: 40px;
+    }
+
+    .momaiz-item .momaiz-caption {
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+    .c1,
+    .c2 {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .aya {
+        font-size: 1.3em;
+        margin: 10% auto 5%;
+        text-align: center;
+    }
+
+    /*----------------------------------------*/
+    /*-------------- ELRANK PAGE -------------*/
+    /*----------------------------------------*/
+
+    .rank-container {
+        width: 100%;
+        min-width: 100%;
+        padding: 10px;
+        margin: 0 auto 20px;
+    }
+
+    .rank-table {
+        font-size: 0.9em;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .rank-table th,
+    .rank-table td {
+        padding: 8px 5px;
+        font-size: 0.85em;
+    }
+
+    .rank-table caption {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+}
