@@ -255,7 +255,6 @@ a:hover {
     background-size: 50% 100%;
     background-repeat: no-repeat;
     background-position: left center;
-    min-height: 400px;
 }
 
 .rules-content li {
@@ -271,7 +270,6 @@ a:hover {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 50% 100%;
-    min-height: 400px;
 }
 
 .encourage-content {
@@ -751,6 +749,7 @@ footer {
     }
 
 }
+
 
 
 
