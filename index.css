@@ -252,7 +252,7 @@ a:hover {
     text-align: right;
     padding: 20px 50px 20px 250px;
     /* top, right, bottom, left */
-    background-image: url(/saints/boles.png);
+    background-image: url(saints/boles.png);
     background-size: 50% 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -268,7 +268,7 @@ a:hover {
 .encourage {
     text-align: center;
     color: white;
-    background-image: url(/saints/gerges.png);
+    background-image: url(saints/gerges.png);
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 50% 100%;
@@ -750,4 +750,5 @@ footer {
         font-size: 1.2em;
         margin-bottom: 10px;
     }
+
 }
