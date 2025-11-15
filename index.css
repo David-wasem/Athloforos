@@ -614,7 +614,7 @@ footer {
     }
 
     .rules-content {
-        background-image: url(/saints/abosefen2.png);
+        background-image: url('abosefen2.png');
         background-size: 60% 100%;
         background-repeat: no-repeat;
         background-position: left center;
@@ -752,5 +752,6 @@ footer {
     }
 
 }
+
 
 
