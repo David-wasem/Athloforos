@@ -234,7 +234,7 @@ a:hover {
 .rules-container {
     text-align: center;
     color: white;
-    padding: 20px 20px 0 0;
+    padding: 20px 20px 3.5% 0;
 }
 
 .rules-heading {
@@ -749,6 +749,7 @@ footer {
     }
 
 }
+
 
 
 
