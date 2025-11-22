@@ -629,8 +629,9 @@ footer {
     .rules-container li {
         font-size: 18px;
         font-weight: 500;
-        margin: 0 15px;
-        line-height: 3.5em;
+        margin: 10px 15px;
+        /* line-height: 3.5em; */
+        width: 40%;
     }
 
     .encourage-content {
