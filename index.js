@@ -87,15 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // drive patterns: https://drive.google.com/file/d/FILEID/view?usp=sharing
         let m = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
-        if (m && m[1]) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+        if (m && m[1]) return `https://lh3.googleusercontent.com/d/${m[1]}`;
 
         // id=FILEID pattern
         m = link.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-        if (m && m[1]) return `https://drive.google.com/uc?export=view&id=${m[1]}`;
+        if (m && m[1]) return `https://lh3.googleusercontent.com/d/${m[1]}`;
 
         // fallback: try to extract a long-ish token
         m = link.match(/[-_a-zA-Z0-9]{20,}/);
-        if (m) return `https://drive.google.com/uc?export=view&id=${m[0]}`;
+        if (m) return `https://lh3.googleusercontent.com/d/${m[0]}`;
 
         return defaultImage;
     }
