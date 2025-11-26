@@ -111,17 +111,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = document.createElement('div');
             item.className = 'momaiz-item';
 
-            const img = document.createElement('img');
-            img.className = 'momaiz-img';
-            img.src = resolveDriveLink(image);
-            img.alt = name || 'momaiz image';
-            img.onerror = () => { img.src = defaultImage; };
+            const flipper = document.createElement('div');
+            flipper.className = 'flipper';
+
+            const front = document.createElement('img');
+            front.className = 'front momaiz-img';
+            front.src = defaultImage;
+            front.alt = name || 'momaiz image';
+            front.onerror = () => { front.src = defaultImage; };
+
+            const back = document.createElement('img');
+            back.className = 'back momaiz-img';
+            back.src = resolveDriveLink(image);
+            back.alt = name || 'momaiz image';
+            back.onerror = () => { back.src = defaultImage; };
+
+            flipper.appendChild(front);
+            flipper.appendChild(back);
 
             const caption = document.createElement('div');
             caption.className = 'momaiz-caption';
             caption.textContent = name || '';
 
-            item.appendChild(img);
+            item.appendChild(flipper);
             item.appendChild(caption);
             grid.appendChild(item);
         });

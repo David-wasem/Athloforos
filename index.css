@@ -185,7 +185,7 @@ a:hover {
     position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 20px;
 }
 
@@ -194,12 +194,13 @@ a:hover {
     height: auto;
     border-radius: 8px;
     opacity: 0;
+    bottom: 0;
 }
 
 .intro-images .coptic {
     position: absolute;
     left: 50%;
-    --coptic-base-transform: translateX(-60%) scale(1.08);
+    --coptic-base-transform: translateX(-50%) scale(1.08);
     transform: var(--coptic-base-transform) translateY(50px);
     z-index: 1;
 }
@@ -403,34 +404,55 @@ footer {
 }
 
 .momaiz-item {
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1;
-}
-
-.momaiz-item {
+    perspective: 1000px;
     text-align: center;
     z-index: 1;
-}
-
-.momaiz-item .momaiz-img {
-    width: 100%;
     height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.momaiz-item:hover .momaiz-img {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+    transition: z-index 0s 0.3s;
 }
 
 .momaiz-item:hover {
     z-index: 5;
+    transition: z-index 0s 0s;
 }
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.momaiz-item:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+
+
+
 
 .momaiz-item .momaiz-caption {
     margin-top: 10px;
@@ -594,6 +616,7 @@ footer {
 
     .intro-images {
         height: fit-content;
+        justify-content: space-between;
     }
 
     .intro-images img {
