@@ -403,6 +403,7 @@ footer {
     justify-content: center;
 }
 
+
 .momaiz-item {
     perspective: 1000px;
     text-align: center;
@@ -424,7 +425,7 @@ footer {
     height: 100%;
 }
 
-.momaiz-item:hover .flipper {
+.flipper.flipped {
     transform: rotateY(180deg);
 }
 
@@ -454,6 +455,7 @@ footer {
 
 
 
+
 .momaiz-item .momaiz-caption {
     margin-top: 10px;
     font-family: Cairo, sans-serif;
@@ -463,8 +465,19 @@ footer {
     text-shadow: 0px 2px 9px #000;
 }
 
+.flip-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+
 .mom-en {
-    margin: 20px auto;
+    margin: 35px auto;
     width: 50%;
 }
 
@@ -733,7 +746,7 @@ footer {
 
     .momaiz-grid {
         padding-bottom: 25px;
-        gap: 40px;
+        /* gap: 40px; */
     }
 
     .momaiz-item .momaiz-caption {

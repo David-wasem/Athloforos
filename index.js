@@ -136,6 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
             item.appendChild(flipper);
             item.appendChild(caption);
             grid.appendChild(item);
+
+            flipper.addEventListener('click', () => {
+                flipper.classList.toggle('flipped');
+            });
         });
 
         contentEl.appendChild(grid);
